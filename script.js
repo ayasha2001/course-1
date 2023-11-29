@@ -12,6 +12,10 @@ const listItems = document.getElementsByClassName("list-group-item")
 console.log(listItems)
 listItems[1].style.backgroundColor="green"
 
-for(var i=0;listItems.length;i++){
+for(var i=0;i<listItems.length;i++){
     listItems[i].style.fontWeight="bold"
 }
+
+const li = document.getElementsByTagName("li")
+li[4].style.fontWeight="bold"
+li[4].style.backgroundColor="red"
