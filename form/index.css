@@ -1,0 +1,52 @@
+div{
+    background-color: white;
+    width: 800px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-style: double;
+    border-radius: 10px;
+    border-color: orange;
+;
+}
+body{
+    background-image: url(ab.jpeg);
+    justify-content: center;
+    display: flex;
+}
+.input{
+    margin-bottom: 20px;
+    height: 25px;
+    width: 730px;
+    border-color: gray;
+}
+h1{
+    justify-content: center;
+    display: flex;
+    color: orange;
+}
+p{
+    justify-content: center;
+    display: flex;
+    color: gray;
+}
+label{
+    font-size: large;
+}
+#btn{
+    background-color: orange;
+    color: white;
+    height: 30px;
+    width: 750px;
+    border-style: none;
+    border-radius: 5px;
+}
+.date-input{
+    width: 365px;
+    height: 25px;
+    margin-bottom: 20px;
+    border-color: gray;
+    color: gray;
+}
+label{
+    margin-bottom: 8px;
+}

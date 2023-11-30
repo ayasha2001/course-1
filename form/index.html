@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div>
+      <h1>Book a Call</h1>
+      <p>book a slot our representative will call you within 1hr of selected time</p>
+      <form >
+        <label>Name:</label>
+        <br />
+        <input id="name" class="input" type="text"  name="name" />
+        <br />
+        <label>Email:</label>
+        <br />
+        <input id="email" class="input" type="email" name="email" value=""/>
+        <br />
+        <label>Phone:</label>
+        <br />
+        <input id="phone" class="input" type="tel" name="phone" value=""/>
+        <br />
+        <label>Time for Call:</label>
+        <br />
+        <input id="datetime" class="date-input" type="datetime-local" value=""/>
+        <input id="time" class="date-input" type="time" value=""/>
+        <br />
+        <button id="btn" name="data" type="button" onclick="submitForm()">GET A CALL</button>
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
