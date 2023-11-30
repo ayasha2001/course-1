@@ -10,5 +10,6 @@ function submitForm(event){
      userPhone : phone,
      userDateTime:datetime
    }
-   localStorage.setItem("user",JSON.stringify(user))
+   
+   localStorage.setItem(email,JSON.stringify(user))
 }
