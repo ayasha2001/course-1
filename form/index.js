@@ -1,7 +1,14 @@
 function submitForm(event){
-   console.log(document.getElementById("name").value)
-   console.log(document.getElementById("email").value)
-   console.log(document.getElementById("phone").value)
-   console.log(document.getElementById("datetime").value)
-   console.log(document.getElementById("time").value)
+   const name = document.getElementById("name").value;
+   const email = document.getElementById("email").value;
+   const phone = document.getElementById("phone").value;
+   const datetime = document.getElementById("datetime").value;
+
+   const user = {
+     userName : name,
+     userEmail : email,
+     userPhone : phone,
+     userDateTime:datetime
+   }
+   localStorage.setItem("user",JSON.stringify(user))
 }
