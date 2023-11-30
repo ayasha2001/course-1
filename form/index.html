@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div>
+    <div id="div">
       <h1>Book a Call</h1>
       <p>book a slot our representative will call you within 1hr of selected time</p>
       <form >
         <label>Name:</label>
         <br />
-        <input id="name" class="input" type="text"  name="name" />
+        <input id="name" class="input" type="text"  name="name" required />
         <br />
         <label>Email:</label>
         <br />
-        <input id="email" class="input" type="email" name="email" value=""/>
+        <input id="email" class="input" type="email" name="email" value="" required/>
         <br />
         <label>Phone:</label>
         <br />
-        <input id="phone" class="input" type="tel" name="phone" value=""/>
+        <input id="phone" class="input" type="tel" name="phone" value="" required/>
         <br />
         <label>Time for Call:</label>
         <br />
@@ -29,6 +29,7 @@
         <input id="time" class="date-input" type="time" value=""/>
         <br />
         <button id="btn" name="data" type="button" onclick="submitForm()">GET A CALL</button>
+        <ul id="container"></ul>
       </form>
     </div>
     <script src="index.js"></script>

@@ -1,4 +1,4 @@
-div{
+#div{
     background-color: white;
     width: 800px;
     padding-bottom: 20px;
@@ -49,4 +49,13 @@ label{
 }
 label{
     margin-bottom: 8px;
+}
+#container{
+    list-style: none;
+}
+.li-tag{
+    display: flex;
+    font-weight: bold;
+    width: 700px;
+    justify-content: space-between;
 }
