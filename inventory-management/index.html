@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="formDiv">
+        <h1>Inventory management</h1>
+        <form>
+          <div class="divTag">
+            <label>Item Name : </label>
+            <input type="text" id="name" class="input" />
+          </div>
+          <div class="divTag">
+            <label>Description : </label>
+            <input type="text" id="desc" class="input" />
+          </div>
+          <div class="divTag">
+            <label>Quantity : </label>
+            <input type="text" id="qty" class="input" />
+          </div>
+          <div class="divTag">
+            <label>Price : </label>
+            <input type="text" id="price" class="input" />
+          </div>
+        </form>
+        <div><button id="submit">Add item</button></div>
+      </div>
+
+      <div>
+        <table style="width: 100%" id="table">
+          <tr>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Select purchase quantity</th>
+          </tr>
+        </table>
+      </div>
+      <!-- <ul id="liContainer" style="list-style: none"></ul> -->
+    </div>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script defer src="script.js"></script>
+  </body>
+</html>
