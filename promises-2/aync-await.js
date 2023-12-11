@@ -32,7 +32,6 @@ const premovie = async () => {
     console.log(data4)
 }
 
-premovie()
 
 console.log("person 4")
 console.log("person 5")
