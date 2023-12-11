@@ -1,6 +1,13 @@
 // GET REQUEST
 // GET REQUEST
 function getTodos() {
+
+    /*two ways of defininig method and url
+    *by default axios request are get if not mentioned
+    * if we need to call several apis together we can use axios.all
+    */
+
+
     // axios({
     //   method: 'get',
     //   url: 'https://jsonplaceholder.typicode.com/todos',
@@ -13,7 +20,10 @@ function getTodos() {
   
     axios
       .get('https://jsonplaceholder.typicode.com/todos?_limit=5', {
-        timeout: 5000
+        timeout: 5000,
+        param:{
+            _limit:5
+        }
       })
       .then(res => showOutput(res))
       .catch(err => console.error(err));
