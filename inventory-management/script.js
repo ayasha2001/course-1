@@ -6,24 +6,23 @@ const price = document.getElementById("price");
 const btn = document.getElementById("submit");
 
 table.addEventListener("click", handleSubmit);
-btn.addEventListener("submit",submitFunction)
+btn.addEventListener("click", submitFunction);
 
-// getItem();
+getItem();
 
 function handleSubmit(event) {
   let num;
-  console.log(event.target.classlist)
-  if (event.target.classlist.contain("one")) {
+  if (event.target.classList.contains("one")) {
     num = 1;
-  } else if (event.target.classlist.contain("two")) {
+  } else if (event.target.classList.contains("two")) {
     num = 2;
-  } else if (event.target.classlist.contain("three")) {
+  } else if (event.target.classList.contains("three")) {
     num = 3;
-  }
-  else{
+  } else {
     return;
   }
-  updateApi()
+  console.log(event.target.classList[2]);
+  updateApi(event.target.classList[2], num);
 }
 
 function saveItem(data) {
@@ -44,8 +43,10 @@ function getItem() {
   axios
     .get("https://crudcrud.com/api/fe141b6891d0478d8c5ceed956e5d799/inventory")
     .then((data) => {
-        console.log(data)
-      updateUi(data.data);
+      table.innerHTML = "";
+      data.data.forEach((element) => {
+        updateUi(element);
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -53,24 +54,23 @@ function getItem() {
 }
 
 function submitFunction() {
-    console.log("sub click")
+  console.log("sub click");
   if (
-    itemName.innerHTML == "" ||
-    desc.innerHTML == "" ||
-    qty.innerHTML == "" ||
-    price.innerHTML == ""
+    itemName.value == "" ||
+    desc.value == "" ||
+    qty.value == "" ||
+    price.value == ""
   ) {
     alert("enter all fields");
   }
 
   const data = {
-    itemName: itemName.innerHTML,
-    desc: desc.innerHTML,
-    qty: qty.innerHTML,
-    price: price.innerHTML,
+    itemName: itemName.value,
+    desc: desc.value,
+    qty: qty.value,
+    price: price.value,
   };
 
-  console.log(data,"data")
   saveItem(data);
 }
 
@@ -94,6 +94,10 @@ function updateUi(ele) {
   btn1.setAttribute("class", `btn one ${ele._id}`);
   btn2.setAttribute("class", `btn two ${ele._id}`);
   btn3.setAttribute("class", `btn three ${ele._id}`);
+
+  btn1.innerHTML = "one";
+  btn2.innerHTML = "two";
+  btn3.innerHTML = "three";
   btnDiv.setAttribute("id", "btnDiv");
 
   thN.innerHTML = ele.itemName;
@@ -112,35 +116,40 @@ function updateUi(ele) {
   table.appendChild(tr);
 }
 
-function updateApi(id) {
+function updateApi(id, val) {
+  console.log(id, "updateApi");
   axios
     .get(
-      "https://crudcrud.com/api/fe141b6891d0478d8c5ceed956e5d799/inventory/" +
-        id
+      `https://crudcrud.com/api/fe141b6891d0478d8c5ceed956e5d799/inventory/${id}`
     )
     .then((data) => {
       console.log(data, "updateApi");
-      updateQty(id, val);
+      updateQty(data, id, data.qty - val);
     })
     .catch((err) => {
       console.log("updateApi", err);
     });
 }
 
-function updateQty(id, val) {
+function updateQty(data, id, val) {
+  
+  const newData = {
+    itemName: data.itemName,
+    desc: data.desc,
+    qty: val,
+    price: data.price,
+  };
+  console.log(newData, "updateQty");
   axios
     .put(
       "https://crudcrud.com/api/fe141b6891d0478d8c5ceed956e5d799/inventory/" +
         id,
-      {
-        qty: val,
-      }
+      newData
     )
     .then((data) => {
-      console.log(data, "updateApi");
-      updateQty(data.qty);
+      console.log(data, "updateQty");
     })
     .catch((err) => {
-      console.log("updateApi", err);
+      console.log("updateQty", err);
     });
 }
