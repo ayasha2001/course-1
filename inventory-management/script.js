@@ -28,7 +28,7 @@ function handleSubmit(event) {
 function saveItem(data) {
   axios
     .post(
-      "https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/inventory",
+      "https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/management",
       data
     )
     .then(() => {
@@ -41,7 +41,7 @@ function saveItem(data) {
 
 function getItem() {
   axios
-    .get("https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/inventory")
+    .get("https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/management")
     .then((data) => {
       table.innerHTML = "";
       data.data.forEach((element) => {
@@ -121,7 +121,7 @@ function updateApi(id, val) {
   console.log("updateApi",id,val);
   axios
     .get(
-      `https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/inventory/${id}`
+      `https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/management/${id}`
     )
     .then((data) => {
       console.log(data.data,data.qty - val, "updateApi");
@@ -142,7 +142,7 @@ function updateQty(data, id, val) {
   console.log(newData, "updateQty");
   axios
     .put(
-      "https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/inventory/" +
+      "https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/management/" +
         id,
       newData
     )
