@@ -21,14 +21,14 @@ function handleSubmit(event) {
   } else {
     return;
   }
-  console.log(event.target.classList[2]);
+  console.log("handle submit",num,event.target.classList[2]);
   updateApi(event.target.classList[2], num);
 }
 
 function saveItem(data) {
   axios
     .post(
-      "https://crudcrud.com/api/fe141b6891d0478d8c5ceed956e5d799/inventory",
+      "https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/inventory",
       data
     )
     .then(() => {
@@ -41,7 +41,7 @@ function saveItem(data) {
 
 function getItem() {
   axios
-    .get("https://crudcrud.com/api/fe141b6891d0478d8c5ceed956e5d799/inventory")
+    .get("https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/inventory")
     .then((data) => {
       table.innerHTML = "";
       data.data.forEach((element) => {
@@ -62,6 +62,7 @@ function submitFunction() {
     price.value == ""
   ) {
     alert("enter all fields");
+    return;
   }
 
   const data = {
@@ -117,14 +118,14 @@ function updateUi(ele) {
 }
 
 function updateApi(id, val) {
-  console.log(id, "updateApi");
+  console.log("updateApi",id,val);
   axios
     .get(
-      `https://crudcrud.com/api/fe141b6891d0478d8c5ceed956e5d799/inventory/${id}`
+      `https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/inventory/${id}`
     )
     .then((data) => {
-      console.log(data, "updateApi");
-      updateQty(data, id, data.qty - val);
+      console.log(data.data,data.qty - val, "updateApi");
+      updateQty(data.data, id, data.data.qty - val);
     })
     .catch((err) => {
       console.log("updateApi", err);
@@ -132,7 +133,6 @@ function updateApi(id, val) {
 }
 
 function updateQty(data, id, val) {
-  
   const newData = {
     itemName: data.itemName,
     desc: data.desc,
@@ -142,11 +142,12 @@ function updateQty(data, id, val) {
   console.log(newData, "updateQty");
   axios
     .put(
-      "https://crudcrud.com/api/fe141b6891d0478d8c5ceed956e5d799/inventory/" +
+      "https://crudcrud.com/api/6794bef57eba4d65b31223bfdac20fd2/inventory/" +
         id,
       newData
     )
     .then((data) => {
+        getItem()
       console.log(data, "updateQty");
     })
     .catch((err) => {
